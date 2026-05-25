@@ -86,18 +86,18 @@ class AddFragment : Fragment() {
         voiceRecognizer = VoiceRecognizer(
             context = requireContext(),
             onResult = { text ->
-                binding.btnVoice.setImageResource(R.drawable.ic_mic)
+                binding.btnVoice.setIconResource(R.drawable.ic_mic)
                 handleVoiceResult(text)
             },
             onError = { error ->
-                binding.btnVoice.setImageResource(R.drawable.ic_mic)
+                binding.btnVoice.setIconResource(R.drawable.ic_mic)
                 Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
             },
             onReady = {
-                binding.btnVoice.setImageResource(R.drawable.ic_mic_active)
+                binding.btnVoice.setIconResource(R.drawable.ic_mic_active)
             },
             onListening = {
-                binding.btnVoice.setImageResource(R.drawable.ic_mic_active)
+                binding.btnVoice.setIconResource(R.drawable.ic_mic_active)
             }
         )
     }
