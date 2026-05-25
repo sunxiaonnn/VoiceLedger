@@ -31,7 +31,15 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
-    - name: Upload APK
+    - name: Upload APK to Release
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v1.0.0
+        files: app/build/outputs/apk/debug/*.apk
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
         name: voiceledger-debug
